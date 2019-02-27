@@ -10,6 +10,7 @@ services:
     depends_on:
     - python
   python:
+    container_name: flask_blog
     build: .
     volumes:
     - ./flask:/app
