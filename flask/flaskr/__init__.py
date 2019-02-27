@@ -2,7 +2,7 @@ import os
 
 from flask import Flask
 
-from . import db
+from . import auth, blog, db
 
 
 def create_app(test_config=None):
@@ -23,10 +23,15 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    db.init_app(app)
+
+    app.register_blueprint(auth.bp)
+    app.register_blueprint(blog.bp)
+
+    app.add_url_rule('/', endpoint='index')
+
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
-
-    db.init_app(app)
 
     return app
