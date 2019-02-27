@@ -1,4 +1,4 @@
-# flask-practice
+# flask-blog
 Python Flask practice.
 
 To run the project:
