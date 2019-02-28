@@ -1,6 +1,6 @@
 from flask import (Blueprint, abort, flash, g, redirect, render_template, request, url_for)
-from flaskr.auth import login_required
-from flaskr.db import get_db
+from .auth import login_required
+from .db import get_db
 
 bp = Blueprint('blog', __name__)
 
@@ -78,7 +78,7 @@ def update(id):
         else:
             db = get_db()
             db.execute(
-                'UPDATE post SET title = ?, body = ?',
+                'UPDATE post SET title = ?, body = ?'
                 ' WHERE id = ?',
                 (title, body, id)
             )
