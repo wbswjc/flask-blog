@@ -1,6 +1,6 @@
 FROM python:3.7.2
 
-RUN apt update && apt install vim -y
+RUN apt-get update && apt-get install vim -y
 
 ENV FLASK_APP flaskr
 
